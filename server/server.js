@@ -1,13 +1,12 @@
 const path = require("path");
 const express = require('express')
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 const BUILD_PATH = path.resolve("../client/build")
-// console.log(BUILD_PATH)
 
-app.get('/', (req, res) => {
-  res.send('Hello gitPayd!')
-})
+app.use(express.static(BUILD_PATH));
+
+
 
 app.get("/ping", (req, res)=> {res.send("pong!");
 });

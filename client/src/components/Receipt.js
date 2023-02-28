@@ -19,7 +19,7 @@ const Receipt = () => {
     e.preventDefault();
     sendEmail(email, `New receipt from GitPayd`, amount, date, business, receiptNo);
   };
-//wrap in div and lable
+//This is what will populate the receipt
   return (
     <form onSubmit={handleSubmit}>
         <div>
@@ -32,31 +32,46 @@ const Receipt = () => {
       />
       </div>
       
-      <input
+     <div>
+         <label>Amount:</label>
+     <input
         type="input"
         name="amount"
         value={amount}
         onChange={handleChange}
       />
-      <input
+     </div>
+
+    <div>
+    <label>Date:</label>
+        <input
         type="input"
         name="date"
         value={date}
         placeholder='mm/dd/yy'
         onChange={handleChange}
       />
-      <input
+    </div>
+     
+     <div>
+     <label>Business:</label>
+     <input
         type="input"
         name="business"
         value={business}
         onChange={handleChange}
       />
-      <input
+     </div>
+      
+     <div>
+     <label>Receipt No:</label>
+     <input
         type="input"
         name="receiptNo"
         value={receiptNo}
         onChange={handleChange}
       />
+     </div>
       <button type="submit">Send</button>
     </form>
   );
