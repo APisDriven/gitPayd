@@ -1,14 +1,14 @@
 const path = require("path");
-const express = require('express')
-const app = express()
-const PORT = process.env.PORT || 3001
-const BUILD_PATH = path.resolve("../client/build")
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3001;
+const BUILD_PATH = path.resolve("../client/build");
 
 app.use(express.static(BUILD_PATH));
 
 
 
-app.get("/ping", (req, res)=> {res.send("pong!");
+app.get("/where", (req, res)=> {res.send("here!");
 });
 
 app.listen(PORT, () => {
