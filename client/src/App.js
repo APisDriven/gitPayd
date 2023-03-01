@@ -1,22 +1,26 @@
 // import {useQuery} from "@apollo/client";
 
 // import{ QUERY_WHERE} from "./utils/queries";
-
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Header from "components/Header.js";
 import Footer from "components/Footer.js";
 import Home from "pages/Home.js";
+import About from "pages/About.js";
 
 function App() {
  
   return (
-    <>
+    <BrowserRouter>
     <Header />
     <main>
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
     </main>
    <Footer />
     
-    </>
+    </BrowserRouter>
   );
 }
 
