@@ -1,14 +1,7 @@
-import {useQuery, gql} from "@apollo/client";
+import {useQuery} from "@apollo/client";
 // import {useState} from "react";
 
-const QUERY_WHERE = gql`
-query{
-  ping{
-    message
-    timestamp
-  }
-}
-`
+import{ QUERY_WHERE} from "./utils/queries.js"
 
 function App() {
  const { data, loading, error }= useQuery(QUERY_WHERE);
