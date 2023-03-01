@@ -26,5 +26,8 @@
   },
   "devDependencies": {
     "foreman": "^3.0.1"
+  },
+  "dependencies": {
+    "mvp.css": "^1.12.0"
   }
 }
