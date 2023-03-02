@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import sendEmail from './mailer.js';
+// import sendEmail from './mailer.js';
 
 const Receipt = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ const Receipt = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    sendEmail(email, `New receipt from GitPayd`, amount, date, business, receiptNo);
+    // sendEmail(email, `New receipt from GitPayd`, amount, date, business, receiptNo);
   };
 //This is what will populate the receipt
   return (

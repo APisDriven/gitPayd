@@ -1,7 +1,9 @@
+import Receipt from "components/Receipt.js";
+
 export default function Home(){
     return(
         <section>
-        <h3>Form is coming soon</h3>
+        <Receipt/>
       </section>
     )
 }
