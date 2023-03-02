@@ -26,7 +26,7 @@ const server = new ApolloServer({
 
 });
 
-const User= mongoose.model("User", userSchema);
+// const User= mongoose.model("User", userSchema);
 await server.start();
 
 app.use(express.static(BUILD_PATH));

@@ -7,7 +7,7 @@ import "mvp.css";
 
 const client = new ApolloClient({
   uri: "/graphql",
-  cashe: new InMemoryCache(),
+  cache: new InMemoryCache(),
 })
 
 
