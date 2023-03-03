@@ -1,3 +1,5 @@
+import Receipt from "components/Receipt.js";
+
 export default function About(){
     return(
     <>

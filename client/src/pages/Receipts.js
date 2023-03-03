@@ -1,12 +1,12 @@
-export default function Profile(){
+export default function Receipts(){
     return(
     <>
         <section>
             <header>
-                <h2>Profile</h2>
+                <h2>All receipts</h2>
             </header>
             <blockquote>
-               
+              
             </blockquote>
         </section>
     </>
