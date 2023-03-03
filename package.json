@@ -28,6 +28,7 @@
     "foreman": "^3.0.1"
   },
   "dependencies": {
-    "mvp.css": "^1.12.0"
+    "mvp.css": "^1.12.0",
+    "signature_pad": "^4.1.5"
   }
 }
