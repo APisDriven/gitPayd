@@ -7,13 +7,15 @@ export default function Header(){
         <header>
         <nav>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><a href="/">History</a></li>
+            <li><Link to="/home">Home</Link></li>
             <li><Link to="/about">About</Link></li>
+            <li><Link to="/receipts">Receipts</Link></li>
+            <li><Link to="/newReceipt">New Receipt</Link></li>
+            <li><Link to="/profile">Profile</Link></li>
+            <li><Link to="/">Log out</Link></li>
           </ul>
         </nav>
       <h1>GitPayd</h1>
-      <h2>Comming Soon!</h2>
       </header>
     )
 }
