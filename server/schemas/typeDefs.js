@@ -1,9 +1,17 @@
 export default `#graphql
-type Where {
+type When {
     message: String
     timestamp: String
 }
 type Query{
-    where: Where
+    when: When
 }
+
+
+type Transaction {
+  date: String!
+  amount: Float!
+  from: String!
+  to: String!
+},
 `;
