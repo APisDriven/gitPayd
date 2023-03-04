@@ -2,7 +2,7 @@
 // import mongoose from "mongoose";
 
 // const SALT_ROUNDS = 10;
-// const MONGODB_URI = "mongodb://127.0.0.1:27017/strickland-propane";
+// const MONGODB_URI = "mongodb://127.0.0.1:27017/gitpayd";
 
 // const userSchema = new mongoose.Schema({
 //     email:{
