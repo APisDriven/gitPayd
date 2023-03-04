@@ -6,13 +6,16 @@ export default function About(){
                 <h2>About GitPayd</h2>
             </header>
             <blockquote>
-                "GitPayd is an app that allows you to 
-                easily create, share and store receipts"
+                "GitPayd", our web application,  
+                functions as a digital receipt book that 
+                allows users to easily create, share
+                and store receipts.
             </blockquote>
             <p>
-                As the brainchild of 5 environmentally-consious
+                As the brainchild of environmentally-consious
                 software developers, GitPayd ensures that smartphone
-                users will never need a physical receipt book.
+                users no longer have to waste paper with physical 
+                receipt books when dealing in cash or other collateral.
             </p>
         </section>
     </>
