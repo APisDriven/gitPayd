@@ -16,7 +16,7 @@ const sendEmail = async (to, subject, amount, date, business, receiptNo) => {
       from: process.env.EMAIL_USERNAME,
       to,
       subject,
-      text:`Business Name: ${business}\nReceipt Number: ${receiptNo}\nDate: ${date}\nAmmount: $${amount}`
+      text:`Business Name: ${business}\nReceipt Number: ${receiptNo}\nDate: ${date}\nAmount: $${amount}`
     };
 
     const info = await transporter.sendMail(mailOptions);

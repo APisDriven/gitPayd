@@ -13,7 +13,7 @@ import resolvers from "./schemas/resolvers.js";
 const app = express();
 const httpServer = http.createServer(app);
 
-const MONGODB_URI = process.env.MONGODB_URI|| "mongodb://127.0.0.1:27017/strickland-propane";
+const MONGODB_URI = process.env.MONGODB_URI|| "mongodb://127.0.0.1:27017/gitpayd";
 
 const PORT = process.env.PORT || 3001;
 const BUILD_PATH = path.resolve("../client/build");

@@ -27,10 +27,14 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlenth: 8,
     },
-    receipts:{
-        [receipts]
+    receipts:[
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Receipt',
+        },
+    ],
     },
-})
+);
 
 userSchema.pre("save", async function(next){
     const isNewPassword = this.isNew || this.isModified("password");

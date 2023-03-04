@@ -6,18 +6,18 @@ export default {
                 timestamp: new Date().toISOString(),
             };
         },
-    },
+    },};
 
     const { MongoClient } = require('mongodb');
 
-    const uri = 'mongodb://localhost:27017'; // replace with your MongoDB URI
+    const uri = 'mongodb://127.0.0.1:27017/gitpayd';
     const client = new MongoClient(uri);
     
     async function getTransactions() {
       try {
         await client.connect();
-        const database = client.db('mydatabase'); // replace with your database name
-        const collection = database.collection('transactions'); // replace with your collection name
+        const database = client.db('gitpayd'); // our database name
+        const collection = database.collection('transactions'); // our collection name
         const transactions = await collection.find().toArray();
         return transactions;
       } catch (err) {
@@ -25,7 +25,7 @@ export default {
       } finally {
         await client.close();
       }
-    }
+    };
     
     const resolvers = {
       Query: {
