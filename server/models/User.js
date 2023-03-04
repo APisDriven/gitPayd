@@ -5,10 +5,22 @@ const SALT_ROUNDS = 10;
 // const MONGODB_URI = "mongodb://127.0.0.1:27017/strickland-propane";
 
 const userSchema = new mongoose.Schema({
+    _id: {
+        type: mongoose.Schema.Types.ObjectId,
+        default: mongoose.Types.ObjectId,
+        required: true,
+        unique: true
+      },
+    username:{
+        type: String,
+        required: true,
+        unique: true,
+      },
     email:{
         type: String,
         required: true,
         unique: true,
+        match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
     password:{
         type: String,

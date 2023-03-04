@@ -9,6 +9,11 @@ export default function About(){
                 "GitPayd is an app that allows you to 
                 easily create, share and store receipts"
             </blockquote>
+            <p>
+                As the brainchild of 5 environmentally-consious
+                software developers, GitPayd ensures that smartphone
+                users will never need a physical receipt book.
+            </p>
         </section>
     </>
     )
