@@ -4,9 +4,9 @@
   "description": "This application is covered under the undefined license",
   "main": "index.js",
   "scripts": {
-    "start": "cd server && npm start",
+    "start": "npm start --prefix server",
     "install": "cd server && npm i && cd ../client && npm i && cd ../",
-    "build": "cd client && npm run build",
+    "build": "npm run build --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nf --procfile Procfile.dev start"
   },
