@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt"
 import mongoose from "mongoose";
+import Receipt from "./Receipt";
 
 const SALT_ROUNDS = 10;
 // const MONGODB_URI = "mongodb://127.0.0.1:27017/strickland-propane";
