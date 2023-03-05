@@ -20,9 +20,6 @@ server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// app.get("*", (req, res)=> {
-//     res.sendFile(path.resolve(BUILD_PATH, "index.html"));
-// });
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === "production") {
