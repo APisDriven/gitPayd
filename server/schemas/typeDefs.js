@@ -28,9 +28,9 @@ type Auth {
     receiptNumber: String!
     amount: Float!
     date: String!
-    business: String,
     from: String!
-    to: String!,
+    to: String!
+    email: String!,
   }
 
 type Mutation {
