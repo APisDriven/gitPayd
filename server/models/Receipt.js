@@ -22,10 +22,6 @@ const receiptSchema = new Schema(
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
     },
-    business:{      
-      type: String,
-      required: false
-    },
     from: {
       type: String,
       required: true

@@ -20,17 +20,10 @@ server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-<<<<<<< HEAD
-app.get("*", (req, res)=> {
-    res.sendFile(path.resolve(BUILD_PATH, "index.html"));
-});
-
-=======
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
->>>>>>> 555dffddeb68f81dd0202c8abf72fb0a3c6d32cb
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
