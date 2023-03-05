@@ -1,8 +1,8 @@
-import {gql} from "@apollo/client";
+import gql from "graphql-tag";
 
-export const QUERY_WHERE = gql`
+export const QUERY_WHEN = gql`
 query{
-  where {
+  when {
     message
     timestamp
   }
