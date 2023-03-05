@@ -8,9 +8,10 @@ type Query{
 }
 
 
-type Transaction {
-  date: String!
+type Receipt {
+    receiptNo: String!
   amount: Float!
+  date: String!
   from: String!
   to: String!
 },
