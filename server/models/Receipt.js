@@ -52,9 +52,4 @@ const Thought = model('Receipt', receiptSchema);
 
 module.exports = Thought;
 
-email: '',
-amount: '',
-date:'',
-business:'',
-receiptNo:''
 
