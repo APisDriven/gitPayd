@@ -1,11 +1,11 @@
-import bcrypt from "bcrypt"
-import mongoose from "mongoose";
+const { Schema, model } = require('mongoose');
+const bcrypt = require('bcrypt');
 
-const SALT_ROUNDS = 10;
 // const MONGODB_URI = "mongodb://127.0.0.1:27017/strickland-propane";
 
 const userSchema = new mongoose.Schema({
-    UserId: {
+
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         default: mongoose.Types.ObjectId,
         required: true,
@@ -38,15 +38,18 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save", async function(next){
     const isNewPassword = this.isNew || this.isModified("password");
+    const saltRounds = 10;
     if(isNewPassword){
-        this.password = bcrypt.hashSync(this.password, SALT_ROUNDS);
-    }next();
+        this.password = bcrypt.hashSync(this.password, saltRounds);
+    }
+    
+    next();
 });
 
 userSchema.methods.isCorrectPassword = async function (password){
     return await bcrypt.compare(password, this.password);
 };
 
-const User= mongoose.model("User", userSchema);
+const User= model("User", userSchema);
 
-export default User;
+module.exports = User;
