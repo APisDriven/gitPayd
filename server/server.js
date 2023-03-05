@@ -32,6 +32,10 @@ await server.start();
 app.use(express.static(BUILD_PATH));
 app.use("/graphql", express.json(), expressMiddleware(server));
 
+app.get("*", (req, res)=> {
+    res.sendFile(path.resolve(BUILD_PATH, "index.html"));
+});
+
 
 httpServer.listen({port: PORT}, () => {
     console.log(`Server ready at  http://localhost:${PORT}/`);
