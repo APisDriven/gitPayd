@@ -2,14 +2,6 @@ const { gql } = require("apollo-server-express");
 
 
 const typeDefs = gql`
-type Receipt {
-  receiptNumber: String!
-  amount: Float!
-  date: String!
-  business: String,
-  from: String!
-  to: String!,
-},
 
 type When {
     message: String
@@ -50,3 +42,5 @@ type Mutation {
 
   
 `;
+
+module.exports = typeDefs;

@@ -6,7 +6,9 @@
   "scripts": {
     "start": "npm start --prefix server",
     "install": "cd server && npm i && cd ../client && npm i && cd ../",
+
     "build": "npm run build --prefix client",
+
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nf --procfile Procfile.dev start"
   },
