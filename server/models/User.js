@@ -4,6 +4,13 @@ const bcrypt = require('bcrypt');
 // const MONGODB_URI = "mongodb://127.0.0.1:27017/strickland-propane";
 
 const userSchema = new mongoose.Schema({
+
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        default: mongoose.Types.ObjectId,
+        required: true,
+        unique: true
+      },
     username:{
         type: String,
         required: true,
