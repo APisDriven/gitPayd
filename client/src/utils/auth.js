@@ -1,3 +1,31 @@
+<<<<<<< HEAD
+import {createContext, useContext, useState} from "react";
+
+const AuthContext = createContext();
+
+const USER_STUBS = {
+    HANK: {
+        username: "Elena"
+    },
+    NONE: null,
+}
+ 
+const AuthProvider = (props)=> {
+    const [user, setUser] = useState(USER_STUBS.HANK);
+    const handleLogin =( username )=>{
+        //at some point we will make a request to the backend here.
+setUser({username});
+    }
+    return <AuthContext.Provider value = {{user, handleLogin}} {...props}/>
+};
+
+const useAuth = () => useContext(AuthContext);
+
+export {
+    AuthProvider,
+    useAuth
+}
+=======
 // use this to decode a token and get the user's information out of it
 import decode from 'jwt-decode';
 
@@ -47,3 +75,4 @@ class AuthService {
 }
 
 export default new AuthService();
+>>>>>>> 555dffddeb68f81dd0202c8abf72fb0a3c6d32cb

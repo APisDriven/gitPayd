@@ -2,20 +2,23 @@
 
 // import{ QUERY_WHERE} from "./utils/queries";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { AuthProvider } from "utils/auth.js";
 import Header from "components/Header.js";
 import Footer from "components/Footer.js";
 import Home from "pages/Home.js";
 import About from "pages/About.js";
 import Login from "pages/Login.js";
-import NewReceipt from "pages/NewReceipt";
-import Receipts from "pages/Receipts";
-import Profile from "pages/Profile";
+import NewReceipt from "pages/NewReceipt.js";
+import Receipts from "pages/Receipts.js";
+import Profile from "pages/Profile.js";
+import NotFound from "pages/NotFound.js";
 
 
 function App() {
  
   return (
-    <BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
     <Header />
     <main>
       <Routes>
@@ -25,11 +28,13 @@ function App() {
         <Route path="/newReceipt" element={<NewReceipt />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/home" element={<Home />} />
+        <Route path="*" element={<NotFound />}/>
       </Routes>
     </main>
    <Footer />
     
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 

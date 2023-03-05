@@ -1,8 +1,9 @@
-// import {Link} from "react-router-dom";
+import { useAuth } from "utils/auth.js";
 
 import { Link } from "react-router-dom";
 
 export default function Header(){
+  const {user}=useAuth();
     return(
         <header>
         <nav>
@@ -16,6 +17,7 @@ export default function Header(){
           </ul>
         </nav>
       <h1>GitPayd</h1>
+      <h2>user ? `Welcome ${user.username}!` : "User is not found"</h2>
       </header>
     )
 }
