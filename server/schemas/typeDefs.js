@@ -39,7 +39,6 @@ type Mutation {
     saveReceipt(input: SavedReceiptInput): User
     removeReceipt(receiptNumber: String!): User
 }
-
   
 `;
 

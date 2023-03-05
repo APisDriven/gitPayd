@@ -1,4 +1,7 @@
 const graphql = require('graphql');
+const { findById, findOne } = require('../models/User');
+
+
 
 const{ GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;
 
@@ -23,6 +26,7 @@ const RootQuery = new GraphQLObjectType({
             arge: {receiptNo: {type: GraphQLString}},
             resolve(parent, args){
                 // code to get data from db / other source
+                return findOne(receipt, {id:args.receiptNo});
             }
         }
     }

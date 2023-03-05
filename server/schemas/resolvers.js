@@ -65,7 +65,7 @@ Mutation: {
     throw new AuthenticationError("You need to be logged in!");
   },
 }
-}
+};
 
 
 // async function getTransactions() {
