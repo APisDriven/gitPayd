@@ -1,4 +1,7 @@
-export default `#graphql
+const { gql } = require("apollo-server-express");
+
+
+const typeDefs = gql`
 type When {
     message: String
     timestamp: String
@@ -16,3 +19,5 @@ type Receipt {
   to: String!
 },
 `;
+
+module.exports = typeDefs;
