@@ -1,10 +1,10 @@
 const { Schema, model } = require('mongoose');
-// const reactionSchema = require('./Reaction');
+
 const dateFormat = require('../utils/dateFormat');
 
 const receiptSchema = new Schema(
   {
-    receiptNo: {
+    receiptNumber: {
         type: String,
         default: () => {
           return Math.random().toString(36).substring(2, 12);
@@ -22,6 +22,10 @@ const receiptSchema = new Schema(
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
     },
+    business:{      
+      type: String,
+      required: false
+    },
     from: {
       type: String,
       required: true
@@ -35,12 +39,6 @@ const receiptSchema = new Schema(
         required: true
     },
     // ***We need to add a signature object here
-  },
-  {
-    toJSON: {
-      getters: true
-    },
-    id: false
   }
 );
 
