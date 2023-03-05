@@ -44,17 +44,12 @@ const receiptSchema = new Schema(
   }
 );
 
-receiptSchema.virtual('reactionCount').get(function() {
-  return this.reactions.length;
-});
+// receiptSchema.virtual('reactionCount').get(function() {
+//   return this.reactions.length;
+// });
 
-const Thought = model('Receipt', receiptSchema);
+const Receipt = model('Receipt', receiptSchema);
 
-module.exports = Thought;
+module.exports = Receipt;
 
-email: '',
-amount: '',
-date:'',
-business:'',
-receiptNo:''
 
