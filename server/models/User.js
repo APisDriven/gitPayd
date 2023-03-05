@@ -6,7 +6,7 @@ const SALT_ROUNDS = 10;
 // const MONGODB_URI = "mongodb://127.0.0.1:27017/strickland-propane";
 
 const userSchema = new mongoose.Schema({
-    UserId: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         default: mongoose.Types.ObjectId,
         required: true,
