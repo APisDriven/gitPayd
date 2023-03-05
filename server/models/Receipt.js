@@ -44,9 +44,9 @@ const receiptSchema = new Schema(
   }
 );
 
-receiptSchema.virtual('reactionCount').get(function() {
-  return this.reactions.length;
-});
+// receiptSchema.virtual('reactionCount').get(function() {
+//   return this.reactions.length;
+// });
 
 const Receipt = model('Receipt', receiptSchema);
 
