@@ -1,13 +1,13 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // const MONGODB_URI = "mongodb://127.0.0.1:27017/strickland-propane";
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
 
     userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        default: mongoose.Types.ObjectId,
+        type: Schema.Types.ObjectId,
+        default: Types.ObjectId,
         required: true,
         unique: true
       },

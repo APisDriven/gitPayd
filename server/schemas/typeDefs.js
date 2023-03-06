@@ -10,6 +10,16 @@ type When {
 
 type Query{
     when: When
+    me: User
+}
+
+type Receipt {
+    receiptNumber: String!
+    amount: Int!
+    date: String!
+    from: String!
+    to: String!
+    email: String!
 }
 
 type User {
@@ -26,11 +36,11 @@ type Auth {
 
   input SavedReceiptInput {
     receiptNumber: String!
-    amount: Float!
+    amount: Int!
     date: String!
-    business: String,
     from: String!
-    to: String!,
+    to: String!
+    email: String!,
   }
 
 type Mutation {
@@ -39,7 +49,6 @@ type Mutation {
     saveReceipt(input: SavedReceiptInput): User
     removeReceipt(receiptNumber: String!): User
 }
-
   
 `;
 

@@ -1,7 +1,7 @@
 
 // import Form from "components/Form/index.js"
 import { useState} from "react";
-import {useAuth} from "util/auth.js"
+import {useAuth} from "../utils/auth"
 
 export default function Login(){
 const { handleLogin} = useAuth();
@@ -20,8 +20,8 @@ setPassword("");
 
     return(
         <>
-        <section>
-            <header>
+        <section className="pad">
+            <header className="pad">
                 <h2>Please log in or sign up</h2>
             </header>
             <main>

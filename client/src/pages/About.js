@@ -2,7 +2,7 @@ export default function About(){
     return(
     <>
         <section>
-            <header>
+            <header className="pad">
                 <h2>About GitPayd</h2>
             </header>
             <blockquote>
@@ -11,7 +11,7 @@ export default function About(){
                 allows users to easily create, share
                 and store receipts.
             </blockquote>
-            <p>
+            <p className="container">
                 As the brainchild of environmentally-consious
                 software developers, GitPayd ensures that smartphone
                 users no longer have to waste paper with physical 

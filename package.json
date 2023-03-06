@@ -4,12 +4,11 @@
   "description": "This application is covered under the undefined license",
   "main": "index.js",
   "scripts": {
-    "start": "npm start --prefix server",
-    "install": "cd server && npm i && cd ../client && npm i && cd ../",
-
-    "build": "npm run build --prefix client",
-
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build",
     "dev": "nf --procfile Procfile.dev start"
   },
   "repository": {
@@ -30,6 +29,7 @@
     "foreman": "^3.0.1"
   },
   "dependencies": {
+    "concurrently": "^7.6.0",
     "mvp.css": "^1.12.0",
     "signature_pad": "^4.1.5"
   }

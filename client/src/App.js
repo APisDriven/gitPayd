@@ -20,7 +20,7 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
     <Header />
-    <main>
+    <main className="pad">
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/about" element={<About />} />
