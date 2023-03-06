@@ -1,7 +1,7 @@
 
 // import Form from "components/Form/index.js"
 import { useState} from "react";
-import {useAuth} from "util/auth.js"
+import {useAuth} from "../utils/auth"
 
 export default function Login(){
 const { handleLogin} = useAuth();

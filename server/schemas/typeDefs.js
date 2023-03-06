@@ -10,6 +10,16 @@ type When {
 
 type Query{
     when: When
+    me: User
+}
+
+type Receipt {
+    receiptNumber: String!
+    amount: Int!
+    date: String!
+    from: String!
+    to: String!
+    email: String!
 }
 
 type User {
@@ -26,7 +36,7 @@ type Auth {
 
   input SavedReceiptInput {
     receiptNumber: String!
-    amount: Float!
+    amount: Int!
     date: String!
     from: String!
     to: String!

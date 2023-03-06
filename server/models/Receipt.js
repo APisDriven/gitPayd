@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const dateFormat = require('../utils/dateFormat');
 
@@ -18,7 +18,7 @@ const receiptSchema = new Schema(
         required: true
     },
     date: {
-      type: Date,
+      type: String,
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
     },
@@ -35,13 +35,6 @@ const receiptSchema = new Schema(
         required: true
     },
     // ***We need to add a signature object here
-
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        default: mongoose.Types.ObjectId,
-        required: true,
-        unique: true
-      },
   },
   {
     toJSON: {
