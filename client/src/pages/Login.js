@@ -20,8 +20,8 @@ setPassword("");
 
     return(
         <>
-        <section>
-            <header>
+        <section className="pad">
+            <header className="pad">
                 <h2>Please log in or sign up</h2>
             </header>
             <main>
