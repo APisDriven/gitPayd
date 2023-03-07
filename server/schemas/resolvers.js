@@ -1,10 +1,5 @@
-const { MongoClient } = require('mongodb');
-
-const uri = 'mongodb://127.0.0.1:27017/gitpayd';
-const client = new MongoClient(uri);
-
-
 const { AuthenticationError } = require("apollo-server-errors");
+
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
@@ -15,6 +10,8 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
         );
+        console.log('User:')
+        console.log(userData)
         return userData;
       }
       throw new AuthenticationError("Please login again");
@@ -37,7 +34,11 @@ Mutation: {
     return { token, user };
   },
   addUser: async (parent, args) => {
-    const user = await User.create(args);
+    console.log(args)
+      const user = await User.create(args);
+
+  
+    console.log(user)
     const token = signToken(user);
 
     return { token, user };

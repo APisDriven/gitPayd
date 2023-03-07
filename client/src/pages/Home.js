@@ -1,13 +1,12 @@
 // import Receipt from "components/Receipt.js";
-import { useAuth } from "utils/auth.js";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 
-export default function Home(){
-  const {user}=useAuth();
 
+const Home = () => {
     return(
         <section>
             <header className="pad">
-            <h2>Welcome {user.username}!</h2>
+            <h2>Welcome!</h2>
             </header>
             <main>
               <p>What would you like to do?</p>
@@ -19,3 +18,5 @@ export default function Home(){
       </section>
     )
 }
+
+export default Home;
