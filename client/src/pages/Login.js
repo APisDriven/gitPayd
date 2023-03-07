@@ -55,6 +55,7 @@ const handleFormSubmit = async (event) => {
             <Button
           disabled={
             !(
+              username &&
               email &&
               password
             )
