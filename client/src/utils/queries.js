@@ -14,14 +14,6 @@ export const ME = gql`
     me {
       username
       email
-      savedBooks {
-        title
-        bookId
-        authors
-        description
-        image
-        link
-      }
     }
   }
 `;

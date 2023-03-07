@@ -10,6 +10,8 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
         );
+        console.log('User:')
+        console.log(userData)
         return userData;
       }
       throw new AuthenticationError("Please login again");

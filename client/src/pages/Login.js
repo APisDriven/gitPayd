@@ -3,6 +3,7 @@
 import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
+import { Form, Button, Alert } from "react-bootstrap";
 
 import { loginUser } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -19,16 +20,11 @@ const [showAlert, setShowAlert] = useState(false);
 const handleFormSubmit = async (event) => {
   event.preventDefault();
 
-  // check if form has everything (as per react-bootstrap docs)
-  const form = event.currentTarget;
-  if (form.checkValidity() === false) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
   try {
     const { data } = await login({
       variables: { email, password },
     });
+    console.log(data)
     Auth.login(data.login.token);
   } catch (err) {
     console.error(error);
@@ -48,16 +44,27 @@ const handleFormSubmit = async (event) => {
                 <h2>Please log in or sign up</h2>
             </header>
             <main>
-          <form onSubmit={handleFormSubmit}>
+          <Form onSubmit={handleFormSubmit}>
           <p>Log In</p>
-            <label htmlFor="username">Username</label>
-            <input type="username"  name ="username" required  value={username} onChange={(event)=> setUsername(event.target.value)} />
-            <label htmlFor="email">Email</label>
-            <input type="email"  name ="email" required  value={email} onChange={(event)=> setEmail(event.target.value)} />
-            <label htmlFor="password">Password</label>
-            <input type="password"  name ="password" required  value={password} onChange={(event)=> setPassword(event.target.value)} />
-            <input type="submit" />
-          </form>
+            <Form.Label htmlFor="username">Username</Form.Label>
+            <Form.Control type="username"  name ="username" required  value={username} onChange={(event)=> setUsername(event.target.value)} />
+            <Form.Label htmlFor="email">Email</Form.Label>
+            <Form.Control type="email"  name ="email" required  value={email} onChange={(event)=> setEmail(event.target.value)} />
+            <Form.Label htmlFor="password">Password</Form.Label>
+            <Form.Control type="password"  name ="password" required  value={password} onChange={(event)=> setPassword(event.target.value)} />
+            <Button
+          disabled={
+            !(
+              email &&
+              password
+            )
+          }
+          type="submit"
+          variant="success"
+        >
+          Submit
+        </Button>
+          </Form>
           <p>Need to create an account? <Link to="/signup">SignUp</Link>
 </p>
             </main>
