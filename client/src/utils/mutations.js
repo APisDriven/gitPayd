@@ -35,6 +35,7 @@ export const saveReceipt = gql`
         amount
         date
         business
+        signature
       }
     }
   }
