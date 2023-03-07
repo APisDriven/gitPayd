@@ -8,3 +8,20 @@ query{
   }
 }
 `;
+
+export const ME = gql`
+  query {
+    me {
+      username
+      email
+      savedBooks {
+        title
+        bookId
+        authors
+        description
+        image
+        link
+      }
+    }
+  }
+`;

@@ -1,10 +1,5 @@
-const { MongoClient } = require('mongodb');
-
-const uri = 'mongodb://127.0.0.1:27017/gitpayd';
-const client = new MongoClient(uri);
-
-
 const { AuthenticationError } = require("apollo-server-errors");
+
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
@@ -37,7 +32,11 @@ Mutation: {
     return { token, user };
   },
   addUser: async (parent, args) => {
-    const user = await User.create(args);
+    console.log(args)
+      const user = await User.create(args);
+
+  
+    console.log(user)
     const token = signToken(user);
 
     return { token, user };

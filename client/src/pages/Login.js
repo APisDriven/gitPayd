@@ -1,21 +1,45 @@
 
 // import Form from "components/Form/index.js"
-import { useState} from "react";
+import React, { useState} from "react";
 import { Link } from "react-router-dom";
-import {useAuth} from "../utils/auth"
+import { useMutation } from "@apollo/react-hooks";
 
-export default function Login(){
-const { handleLogin} = useAuth();
+import { loginUser } from "../utils/mutations";
+import Auth from "../utils/auth";
+
+const Login = () => {
 const [username, setUsername]= useState("");
 const [email, setEmail]= useState("");
+const [login, { error }] = useMutation(loginUser);
 const [password, setPassword]= useState("");
-const loginSubmit = (event) => {
-event.preventDefault();
-handleLogin({username});
-setUsername("");
-setEmail("");
-setPassword("");
+const [validated] = useState(false);
+const [showAlert, setShowAlert] = useState(false);
+
+
+const handleFormSubmit = async (event) => {
+  event.preventDefault();
+
+  // check if form has everything (as per react-bootstrap docs)
+  const form = event.currentTarget;
+  if (form.checkValidity() === false) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  try {
+    const { data } = await login({
+      variables: { email, password },
+    });
+    Auth.login(data.login.token);
+  } catch (err) {
+    console.error(error);
+    setShowAlert(true);
+  }
+
+  setUsername("");
+  setEmail("");
+  setPassword("");
 };
+
 
     return(
         <>
@@ -24,7 +48,7 @@ setPassword("");
                 <h2>Please log in or sign up</h2>
             </header>
             <main>
-          <form onSubmit={loginSubmit}>
+          <form onSubmit={handleFormSubmit}>
           <p>Log In</p>
             <label htmlFor="username">Username</label>
             <input type="username"  name ="username" required  value={username} onChange={(event)=> setUsername(event.target.value)} />
@@ -41,3 +65,5 @@ setPassword("");
       </>
     )
 }
+
+export default Login
