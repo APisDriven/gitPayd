@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 // import sendEmail from './mailer.js';
+import SignaturePad from 'react-signature-canvas';
 
 const Receipt = () => {
   const [formData, setFormData] = useState({
@@ -11,14 +12,17 @@ const Receipt = () => {
   });
 
   const { email, amount, date, business, receiptNo} = formData;
+  const [signatureData, setSignatureData] = useState('');
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    window.open('mailto:test@gmail.com')
     // sendEmail(email, `New receipt from GitPayd`, amount, date, business, receiptNo);
   };
+  let signaturePad = {}
 //This is what will populate the receipt
   return (
     <form onSubmit={handleSubmit}>
@@ -72,6 +76,14 @@ const Receipt = () => {
         onChange={handleChange}
       />
      </div>
+     <div>
+     <label>Signature:</label>
+     <SignaturePad
+       penColor='black'
+       canvasProps={{width: 200, height: 100, className: 'canvas'}}
+       ref={(ref) => { signaturePad = ref; }}
+        onEnd={() => setSignatureData(signaturePad.toDataURL())}/>
+    </div>
       <button type="submit">Send</button>
     </form>
   );

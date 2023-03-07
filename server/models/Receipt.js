@@ -34,7 +34,10 @@ const receiptSchema = new Schema(
         type: String,
         required: true
     },
-    // ***We need to add a signature object here
+    signature: {
+      type: String,
+      required: true
+  }
   },
   {
     toJSON: {
