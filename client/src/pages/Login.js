@@ -1,6 +1,7 @@
 
 // import Form from "components/Form/index.js"
 import { useState} from "react";
+import { Link } from "react-router-dom";
 import {useAuth} from "../utils/auth"
 
 export default function Login(){
@@ -15,8 +16,6 @@ setUsername("");
 setEmail("");
 setPassword("");
 };
-
-
 
     return(
         <>
@@ -35,7 +34,8 @@ setPassword("");
             <input type="password"  name ="password" required  value={password} onChange={(event)=> setPassword(event.target.value)} />
             <input type="submit" />
           </form>
-
+          <p>Need to create an account? <Link to="/signup">SignUp</Link>
+</p>
             </main>
       </section>
       </>
