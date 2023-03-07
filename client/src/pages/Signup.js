@@ -39,9 +39,9 @@ const signupSubmit = async (event) => {
         setShowAlert(true);
     }
 
-    // setUsername("");
-    // setEmail("");
-    // setPassword("");
+    setUsername("");
+    setEmail("");
+    setPassword("");
     }
 
 return(

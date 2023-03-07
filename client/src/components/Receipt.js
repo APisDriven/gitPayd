@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 // import sendEmail from './mailer.js';
 import SignaturePad from 'react-signature-canvas';
+import {useMutation} from "@apollo/client";
+import {saveReceipt} from "../utils/mutations.js";
 
 const Receipt = () => {
   const [formData, setFormData] = useState({
@@ -17,12 +19,19 @@ const Receipt = () => {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    await saveReceipt({
+       variables:{
+        email, amount, date, business, receiptNo
+       } 
+    })
     window.open('mailto:test@gmail.com')
     // sendEmail(email, `New receipt from GitPayd`, amount, date, business, receiptNo);
   };
   let signaturePad = {}
+  // const[newReceipt, {error}] = useMutation(saveReceipt)
+  
 //This is what will populate the receipt
   return (
     <form onSubmit={handleSubmit}>
