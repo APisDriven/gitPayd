@@ -1,7 +1,10 @@
 import { useState} from "react";
-import {useAuth} from "util/auth.js"
+import { Link } from "react-router-dom";
+
+import {useAuth} from "../utils/auth.js"
 
 export default function SignUp(){
+const {handleSignup} = useAuth();
 const [username, setUsername]= useState("");
 const [email, setEmail]= useState("");
 const [password, setPassword]= useState("");
@@ -31,6 +34,8 @@ return(
         <input type="password"  name ="password" required  value={password} onChange={(event)=> setPassword(event.target.value)} />
         <input type="submit" />
     </form>
+    <p>Have an account already? <Link to="/">Login</Link>
+</p>
    </main>
     </section> 
     </>

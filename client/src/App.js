@@ -8,6 +8,7 @@ import Footer from "components/Footer.js";
 import Home from "pages/Home.js";
 import About from "pages/About.js";
 import Login from "pages/Login.js";
+import SignUp from "pages/Signup.js";
 import NewReceipt from "pages/NewReceipt.js";
 import Receipts from "pages/Receipts.js";
 import Profile from "pages/Profile.js";
@@ -23,6 +24,7 @@ function App() {
     <main className="pad">
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/about" element={<About />} />
         <Route path="/receipts" element={<Receipts />} />
         <Route path="/newReceipt" element={<NewReceipt />} />
