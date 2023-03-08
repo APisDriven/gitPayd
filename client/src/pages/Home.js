@@ -1,21 +1,27 @@
 // import Receipt from "components/Receipt.js";
-import { useAuth } from "utils/auth.js";
+import { useQuery, useMutation, gql } from '@apollo/client';import { Link } from 'react-router-dom';
 
-export default function Home(){
-  const {user}=useAuth();
 
+
+const Home = () => {
     return(
         <section>
             <header className="pad">
-            <h2>Welcome {user.username}!</h2>
+            <h2>Welcome!</h2>
             </header>
             <main>
               <p>What would you like to do?</p>
-              <div>
-                <button>Create Receipt</button>
-                <button>View Receipt</button>
-              </div>
+              <div id="homeBtns">
+              <Link to="/newReceipt" >Create Receipt</Link>
+                <Link to="/receipts" >View Receipt</Link>
+              
+              </div> 
             </main>
       </section>
     )
 }
+
+export default Home;
+
+{/* <button style={{ Color: 'white' }} ><Link to="/newReceipt">Create Receipt</Link></button>
+<button style={{ color: 'white' }} ><Link to="/receipts">View Receipt</Link></button>   */}

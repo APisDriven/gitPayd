@@ -2,15 +2,9 @@ const { Schema, model, Types } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // const MONGODB_URI = "mongodb://127.0.0.1:27017/strickland-propane";
+const receiptSchema = require('./Receipt');
 
 const userSchema = new Schema({
-
-    userId: {
-        type: Schema.Types.ObjectId,
-        default: Types.ObjectId,
-        required: true,
-        unique: true
-      },
     username:{
         type: String,
         required: true,
@@ -27,13 +21,14 @@ const userSchema = new Schema({
         required: true,
         minlenth: 8,
     },
-    receipts:[
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Receipt',
-        },
-    ],
+    receipts:[receiptSchema],
     },
+      // set this to use virtual below
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
 );
 
 userSchema.pre("save", async function(next){

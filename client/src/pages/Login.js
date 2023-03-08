@@ -1,21 +1,41 @@
 
 // import Form from "components/Form/index.js"
-import { useState} from "react";
+import React, { useState} from "react";
 import { Link } from "react-router-dom";
-import {useAuth} from "../utils/auth"
+import { useMutation } from "@apollo/react-hooks";
+import { Form, Button, Alert } from "react-bootstrap";
 
-export default function Login(){
-const { handleLogin} = useAuth();
+import { loginUser } from "../utils/mutations";
+import Auth from "../utils/auth";
+
+const Login = () => {
 const [username, setUsername]= useState("");
 const [email, setEmail]= useState("");
+const [login, { error }] = useMutation(loginUser);
 const [password, setPassword]= useState("");
-const loginSubmit = (event) => {
-event.preventDefault();
-handleLogin({username});
-setUsername("");
-setEmail("");
-setPassword("");
+const [validated] = useState(false);
+const [showAlert, setShowAlert] = useState(false);
+
+
+const handleFormSubmit = async (event) => {
+  event.preventDefault();
+
+  try {
+    const { data } = await login({
+      variables: { email, password },
+    });
+    console.log(data)
+    Auth.login(data.login.token);
+  } catch (err) {
+    console.error(error);
+    setShowAlert(true);
+  }
+
+  setUsername("");
+  setEmail("");
+  setPassword("");
 };
+
 
     return(
         <>
@@ -24,16 +44,28 @@ setPassword("");
                 <h2>Please log in or sign up</h2>
             </header>
             <main>
-          <form onSubmit={loginSubmit}>
+          <Form onSubmit={handleFormSubmit}>
           <p>Log In</p>
-            <label htmlFor="username">Username</label>
-            <input type="username"  name ="username" required  value={username} onChange={(event)=> setUsername(event.target.value)} />
-            <label htmlFor="email">Email</label>
-            <input type="email"  name ="email" required  value={email} onChange={(event)=> setEmail(event.target.value)} />
-            <label htmlFor="password">Password</label>
-            <input type="password"  name ="password" required  value={password} onChange={(event)=> setPassword(event.target.value)} />
-            <input type="submit" />
-          </form>
+            <Form.Label htmlFor="username">Username</Form.Label>
+            <Form.Control type="username"  name ="username" required  value={username} onChange={(event)=> setUsername(event.target.value)} />
+            <Form.Label htmlFor="email">Email</Form.Label>
+            <Form.Control type="email"  name ="email" required  value={email} onChange={(event)=> setEmail(event.target.value)} />
+            <Form.Label htmlFor="password">Password</Form.Label>
+            <Form.Control type="password"  name ="password" required  value={password} onChange={(event)=> setPassword(event.target.value)} />
+            <Button
+          disabled={
+            !(
+              username &&
+              email &&
+              password
+            )
+          }
+          type="submit"
+          variant="success"
+        >
+          Submit
+        </Button>
+          </Form>
           <p>Need to create an account? <Link to="/signup">SignUp</Link>
 </p>
             </main>
@@ -41,3 +73,5 @@ setPassword("");
       </>
     )
 }
+
+export default Login

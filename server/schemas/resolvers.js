@@ -1,24 +1,42 @@
-const { MongoClient } = require('mongodb');
-
-const uri = 'mongodb://127.0.0.1:27017/gitpayd';
-const client = new MongoClient(uri);
-
-
 const { AuthenticationError } = require("apollo-server-errors");
+
 const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
+      console.log(context.user)
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
         );
+        console.log('User:')
+        console.log(userData)
         return userData;
       }
       throw new AuthenticationError("Please login again");
     },
+    when: async (parent, args, context) => {
+      return {message: 'Hello World'};
+    },
+    receipts: async (parent, args, context) => {
+      if (context.user) {
+        console.log(context.user)
+        try {
+          const receipts = await User.findOne({ _id: context.user._id })
+          console.log(receipts)
+
+        } catch (e) {
+          console.log('errors')
+          console.log(e)
+        }
+
+
+        return userData;
+      }
+      throw new AuthenticationError("Please login again");
+    }
   },
 Mutation: {
   login: async (parent, { email, password }) => {
@@ -37,7 +55,11 @@ Mutation: {
     return { token, user };
   },
   addUser: async (parent, args) => {
-    const user = await User.create(args);
+    console.log(args)
+      const user = await User.create(args);
+
+  
+    console.log(user)
     const token = signToken(user);
 
     return { token, user };
@@ -67,29 +89,6 @@ Mutation: {
 }
 };
 
-
-// async function getTransactions() {
-//   try {
-//     await client.connect();
-//     const database = client.db('gitpayd'); // our database name
-//     const collection = database.collection('transactions'); // our collection name
-//     const transactions = await collection.find().toArray();
-//     return transactions;
-//   } catch (err) {
-//     console.log(err);
-//   } finally {
-//     await client.close();
-//   }
-// };
-
-// const resolvers = {
-//   Query: {
-//     transactions: async () => {
-//       const transactions = await getTransactions();
-//       return transactions;
-//     },
-//   },
-// };
 
 module.exports = resolvers;
 

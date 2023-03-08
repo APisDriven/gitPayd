@@ -22,22 +22,14 @@ const receiptSchema = new Schema(
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
     },
-    from: {
-      type: String,
-      required: true
-    },
-    to: {
-      type: String,
-      required: true
-    },
     email: {
         type: String,
         required: true
     },
-    signature: {
+    business: {
       type: String,
-      required: true
-  }
+      required: false
+    },
   },
   {
     toJSON: {
@@ -53,6 +45,4 @@ const receiptSchema = new Schema(
 
 const Receipt = model('Receipt', receiptSchema);
 
-module.exports = Receipt;
-
-
+module.exports = receiptSchema;

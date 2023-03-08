@@ -1,6 +1,9 @@
-import Receipt from "components/Receipt.js";
+import React, { useState, useEffect} from "react";
+import Receipt from "../components/Receipt.js";
+
 
 export default function About(){
+   
     return(
     <>
         <section>

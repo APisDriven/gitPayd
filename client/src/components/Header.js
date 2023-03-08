@@ -1,9 +1,7 @@
-import { useAuth } from "utils/auth.js";
 import '../../src/index.css'
 import { Link } from "react-router-dom";
 
-export default function Header(){
-  const {user}=useAuth();
+const Header = () => {
     return(
         <header className="pad">
         <nav className="navBar topnav">
@@ -20,3 +18,5 @@ export default function Header(){
       </header>
     )
 }
+
+export default Header;
