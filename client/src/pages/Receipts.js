@@ -1,9 +1,11 @@
 import React, { useState} from "react";
 import { useQuery, useMutation, gql } from "@apollo/react-hooks";
-import {QUERY_WHEN} from "../utils/queries.js";
+import {RECEIPTS} from "../utils/queries.js";
 
 export default function Receipts(){
-    const {data, loading, error} = useQuery(QUERY_WHEN);
+    const {data, loading } = useQuery(RECEIPTS);
+    const receipts = data?.receipts.receipts||[];
+    console.log(receipts);
     return(
     <>
         <section>
@@ -11,7 +13,7 @@ export default function Receipts(){
                 <h2>All receipts</h2>
             </header>
             <blockquote>
-              {data.receipts.map((receipt)=>(
+              {receipts.map((receipt)=>(
                 <p>{receipt.email}</p>
               ))}
             </blockquote>

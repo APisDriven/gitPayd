@@ -24,17 +24,19 @@ export const addOneUser = gql`
 `;
 
 export const saveReceipt = gql`
-  mutation saveReceipt($input: SavedReceiptInput) {
-    saveReceipt(input: $input) {
-      username
-      _id
-      receipts {
-        receiptNumber
-        amount
-        date
-      }
+mutation SaveReceipt($input: SavedReceiptInput, $email: String!, $password: String!) {
+  saveReceipt(input: $input) {
+    _id
+    email
+    receipts {
+      amount
+      business
+      date
+      email
+      receiptNumber
     }
   }
+}
 `;
 
 export const removeReceipt = gql`

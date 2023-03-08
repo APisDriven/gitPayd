@@ -17,10 +17,18 @@ export const ME = gql`
   }
 `
 
-export const Receipts = gql`
-  query Recepits {
+export const RECEIPTS = gql`
+query Receipts {
+  receipts {
+    _id
+    email
     receipts {
-      username
-    }   
+      amount
+      business
+      date
+      email
+      receiptNumber
+    }
   }
+}
 `
