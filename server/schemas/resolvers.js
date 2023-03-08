@@ -6,6 +6,7 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
+      console.log(context.user)
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
@@ -16,6 +17,26 @@ const resolvers = {
       }
       throw new AuthenticationError("Please login again");
     },
+    when: async (parent, args, context) => {
+      return {message: 'Hello World'};
+    },
+    receipts: async (parent, args, context) => {
+      if (context.user) {
+        console.log(context.user)
+        try {
+          const receipts = await User.findOne({ _id: context.user._id })
+          console.log(receipts)
+
+        } catch (e) {
+          console.log('errors')
+          console.log(e)
+        }
+
+
+        return userData;
+      }
+      throw new AuthenticationError("Please login again");
+    }
   },
 Mutation: {
   login: async (parent, { email, password }) => {

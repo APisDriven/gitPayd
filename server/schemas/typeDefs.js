@@ -3,23 +3,22 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
 
-type When {
-    message: String
-    timestamp: String
-}
-
 type Query{
+    me: User,
+    receipts: User,
     when: When
-    me: User
 }
 
 type Receipt {
     receiptNumber: String!
     amount: Int!
     date: String!
-    from: String!
-    to: String!
+    business: String,
     email: String!
+}
+
+type When {
+  message: String,
 }
 
 type User {
@@ -38,9 +37,8 @@ type Auth {
     receiptNumber: String!
     amount: Int!
     date: String!
-    from: String!
-    to: String!
     email: String!,
+    business: String,
   }
 
 type Mutation {
@@ -49,7 +47,7 @@ type Mutation {
     saveReceipt(input: SavedReceiptInput): User
     removeReceipt(receiptNumber: String!): User
 }
-  
+
 `;
 
 module.exports = typeDefs;
