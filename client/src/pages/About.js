@@ -3,10 +3,10 @@ const About = () => {
     <>
         <section>
             <header className="pad">
-                <h2>About GitPayd</h2>
+                <h2>About Us</h2>
             </header>
             <blockquote>
-                "GitPayd", our web application,  
+                GitPayd  
                 functions as a digital receipt book that 
                 allows users to easily create, share
                 and store receipts.
