@@ -12,13 +12,17 @@ const Home = () => {
             </header>
             <main>
               <p>What would you like to do?</p>
-              <div>
-                <button style={{ color: 'white' }} ><Link to="/newReceipt">Create Receipt</Link></button>
-                <button style={{ color: 'white' }} ><Link to="/receipts">View Receipt</Link></button>
-              </div>
+              <div id="homeBtns">
+              <Link to="/newReceipt" >Create Receipt</Link>
+                <Link to="/receipts" >View Receipt</Link>
+              
+              </div> 
             </main>
       </section>
     )
 }
 
 export default Home;
+
+{/* <button style={{ Color: 'white' }} ><Link to="/newReceipt">Create Receipt</Link></button>
+<button style={{ color: 'white' }} ><Link to="/receipts">View Receipt</Link></button>   */}
