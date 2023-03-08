@@ -26,6 +26,7 @@ const resolvers = {
         try {
           const receipts = await User.findOne({ _id: context.user._id })
           console.log(receipts)
+          return receipts;
 
         } catch (e) {
           console.log('errors')
@@ -33,8 +34,7 @@ const resolvers = {
         }
 
 
-        return userData;
-      }
+    }
       throw new AuthenticationError("Please login again");
     }
   },

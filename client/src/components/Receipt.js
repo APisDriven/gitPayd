@@ -12,18 +12,19 @@ const Receipt = () => {
     business:'',
     receiptNo:''
   });
-  const [save, { error }] = useMutation(saveReceipt);
+  const [SaveReceipt, { error }] = useMutation(saveReceipt);
 
   const { email, amount, date, business, receiptNumber} = formData;
   const [signatureData, setSignatureData] = useState('');
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      window.location.href=('mailto:test@gmail.com')
     try {
-      const { data, error } = await save({
+      const { data, error } = await SaveReceipt({
         variables:{
          input: {
           email: email, amount: Number(amount), date: date, business: business, receiptNumber: receiptNumber
@@ -31,7 +32,6 @@ const Receipt = () => {
         } 
      })
      console.log(data)
-     window.open('mailto:test@gmail.com')
     } catch (e) {
       console.log(e)
     }
