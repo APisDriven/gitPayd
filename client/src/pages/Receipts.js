@@ -1,9 +1,9 @@
 import React, { useState} from "react";
-import { useQuery } from "@apollo/client";
-import {ME} from "../utils/queries.js";
+import { useQuery, useMutation, gql } from "@apollo/react-hooks";
+import {QUERY_WHEN} from "../utils/queries.js";
 
 export default function Receipts(){
-    const {data, loading, error} = useQuery(ME);
+    const {data, loading, error} = useQuery(QUERY_WHEN);
     return(
     <>
         <section>

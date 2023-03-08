@@ -2,6 +2,7 @@ const { Schema, model, Types } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // const MONGODB_URI = "mongodb://127.0.0.1:27017/strickland-propane";
+const receiptSchema = require('./Receipt');
 
 const userSchema = new Schema({
     username:{
@@ -20,12 +21,7 @@ const userSchema = new Schema({
         required: true,
         minlenth: 8,
     },
-    receipts:[
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Receipt',
-        },
-    ],
+    receipts:[receiptSchema],
     },
       // set this to use virtual below
   {

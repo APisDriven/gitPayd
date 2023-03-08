@@ -1,6 +1,5 @@
 // import Receipt from "components/Receipt.js";
-import { useQuery, useMutation } from "@apollo/react-hooks";
-import { Link } from 'react-router-dom';
+import { useQuery, useMutation, gql } from '@apollo/client';import { Link } from 'react-router-dom';
 
 
 

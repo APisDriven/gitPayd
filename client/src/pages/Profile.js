@@ -1,7 +1,6 @@
 import userEvent from "@testing-library/user-event";
 import img_avatar from "../../src/img_avatar.webp";
-import { useQuery, useMutation } from "@apollo/react-hooks";
-
+import { useQuery, useMutation, gql } from '@apollo/client';
 import { ME } from "../utils/queries";
 
 export default function Profile(){

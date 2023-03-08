@@ -24,8 +24,7 @@ import NotFound from "./pages/NotFound.js";
 
 const client = new ApolloClient({
   request: (operation) => {
-    // const token = localStorage.getItem("id_token");
-    const token = null;
+    const token = localStorage.getItem("id_token");
     operation.setContext({
       headers: {
         authorization: token ? `Bearer ${token}` : "",
