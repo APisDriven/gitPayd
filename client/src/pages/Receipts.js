@@ -16,7 +16,7 @@ export default function Receipts(){
             <div key={index} className="card margin-bot">
                 <div className="container center"> 
                   <p><b>Receipt#:</b> {receipt.receiptNumber}</p>
-                  <p><b>Amount:</b> {receipt.amount}</p>
+                  <p><b>Amount:</b> ${receipt.amount}</p>
                   <p><b>Date:</b> {receipt.date}</p>
                   <p><b>From:</b> {receipt.from}</p>
                   <p><b>To:</b> {receipt.to}</p>
