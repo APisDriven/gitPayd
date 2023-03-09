@@ -46,6 +46,7 @@ Uses many common features and best practices that are needed for a modern web ap
  1. Signature on profile page, in all modal reciepts 
  2. Adding receipts as attachment to email 
  3. In app membership to allow users to create unlimited receipts
+ 4. Indexing the receipt details in each receipt's modal screen
 
 <a name = "questions"></a>
 ## Questions
