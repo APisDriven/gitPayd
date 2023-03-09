@@ -15,12 +15,12 @@ export default function Receipts(){
               {receipts.map((receipt,index)=>(
             <div key={index} className="card margin-bot">
                 <div className="container center"> 
-                  <p>Receipt#: {receipt.receiptNumber}</p>
-                  <p>Amount: {receipt.amount}</p>
-                  <p>Date: {receipt.date}</p>
-                  <p>From: {receipt.from}</p>
-                  <p>To: {receipt.to}</p>
-                  <p>Email: {receipt.email}</p>
+                  <p><b>Receipt#:</b> {receipt.receiptNumber}</p>
+                  <p><b>Amount:</b> {receipt.amount}</p>
+                  <p><b>Date:</b> {receipt.date}</p>
+                  <p><b>From:</b> {receipt.from}</p>
+                  <p><b>To:</b> {receipt.to}</p>
+                  <p><b>Email:</b> {receipt.email}</p>
                 </div>
             </div>
               ))}

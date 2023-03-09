@@ -35,11 +35,11 @@ type Auth {
   }
 
   input SavedReceiptInput {
-    receiptNumber: String!
     amount: Int!
     date: String!
-    email: String!,
-    business: String,
+    from: String,
+    to: String,
+    email: String!
   }
 
 type Mutation {

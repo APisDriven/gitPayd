@@ -11,7 +11,7 @@ const receiptSchema = new Schema(
         },
         required: true,
         unique: true,
-        maxlength: 10
+        maxlength: 256,
       },
     amount: {
         type: Number,
