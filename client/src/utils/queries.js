@@ -18,16 +18,17 @@ export const ME = gql`
 `
 
 export const RECEIPTS = gql`
-query Receipts {
+query Query {
   receipts {
     _id
     email
     receipts {
       amount
-      business
       date
       email
+      from
       receiptNumber
+      to
     }
   }
 }

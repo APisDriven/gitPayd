@@ -20,6 +20,7 @@ const Receipt = () => {
   const [SaveReceipt, { error }] = useMutation(saveReceipt);
   const { email, amount, date, from, to, receiptNumber} = formData;
   const [signatureData, setSignatureData] = useState('');
+  
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -39,12 +40,12 @@ const Receipt = () => {
     } catch (e) {
       console.log(e)
     }
-
+    setFormData("");
     // sendEmail(email, `New receipt from GitPayd`, amount, date, business, receiptNo);
   };
   let signaturePad = {}
   // const[newReceipt, {error}] = useMutation(saveReceipt)
-  
+
 //This is what will populate the receipt
   return (
     <form onSubmit={handleSubmit}>
@@ -115,7 +116,9 @@ const Receipt = () => {
     </div>
       <button type="submit">Save and Send</button>
     </form>
+
   );
+
 };
 
 export default Receipt;
