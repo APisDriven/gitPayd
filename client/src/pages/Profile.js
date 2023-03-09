@@ -13,12 +13,12 @@ export default function Profile(){
             <header>
                 <h2>Profile</h2>
             </header>
-        <div className="card margin-bot">
-            <img src={img_avatar} className="img-size" />
-            <div className="container center">
-            <h3 className="center"><b>{user.username}</b></h3>
-            <p className="margin-bot">
-            <h4 className="center"><b>Username: {user.username}</b></h4>
+        <div class="card margin-bot">
+            <img src={img_avatar} class="img-size" />
+            <div class="container center">
+            <h3 class="center"><b>{user.username}</b></h3>
+            <p class="margin-bot">
+            <p class="center"><b>Username: {user.username}</b></p>
             <p>
                 <br></br>
                 User ID: {user.userId}<br></br>

@@ -5,12 +5,11 @@ import { useQuery, useMutation, gql } from '@apollo/client';
 import {saveReceipt} from "../utils/mutations.js";
 import { v4 as uuid } from 'uuid';
 
-const uniqueId = uuid();
-const receiptNo = uniqueId.slice(0,8);
+// const uniqueId = uuid();
+// const receiptNo = uniqueId(0,8);
 
 const Receipt = () => {
   const [formData, setFormData] = useState({
-    receiptNo:'',
     amount: '',
     date:'',
     from:'',
@@ -18,7 +17,7 @@ const Receipt = () => {
     email:''
   });
   const [SaveReceipt, { error }] = useMutation(saveReceipt);
-  const { email, amount, date, from, to, receiptNumber} = formData;
+  const { email, amount, date, from, to } = formData;
   const [signatureData, setSignatureData] = useState('');
   
 
@@ -27,20 +26,35 @@ const Receipt = () => {
     
     const handleSubmit = async (e) => {
       e.preventDefault();
-      window.location.href=('mailto:test@gmail.com')
-    try {
-      const { data, error } = await SaveReceipt({
-        variables:{
-         input: {
-          email: email, amount: Number(amount), date: date, to: to, from: from, receiptNumber: receiptNumber
-         }
-        } 
-     })
+      try {
+        const { data, error } = await SaveReceipt({
+          variables:{
+            input: {
+              email: email, amount: Number(amount), date: date, to: to, from: from
+            }
+          } 
+        })
+        setFormData({
+          amount: '',
+          date:'',
+          from:'',
+          to:'',
+          email:''
+        });
+        window.location.href=('mailto:test@gmail.com');
      console.log(data)
-    } catch (e) {
-      console.log(e)
+    } catch (err) {
+      console.log(err)
+      setFormData({
+        amount: '',
+        date:'',
+        from:'',
+        to:'',
+        email:''
+      });
+      window.location.href=('mailto:test@gmail.com');
     }
-    setFormData("");
+
     // sendEmail(email, `New receipt from GitPayd`, amount, date, business, receiptNo);
   };
   let signaturePad = {}
@@ -51,8 +65,8 @@ const Receipt = () => {
     <form onSubmit={handleSubmit}>
 
     <div>
-    <label>Receipt No:</label>
-    <p>{receiptNo}</p>
+    {/* <label>Receipt No:</label>
+    <p>{receiptNo}</p> */}
     </div> 
      <div>
          <label>Amount:</label>
