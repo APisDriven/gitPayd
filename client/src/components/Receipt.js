@@ -5,6 +5,9 @@ import { useQuery, useMutation, gql } from '@apollo/client';
 import {saveReceipt} from "../utils/mutations.js";
 import { v4 as uuid } from 'uuid';
 
+const uniqueId = uuid();
+const receiptNo = uniqueId.slice(0,8);
+
 const Receipt = () => {
   const [formData, setFormData] = useState({
     receiptNo:'',
@@ -15,8 +18,6 @@ const Receipt = () => {
     email:''
   });
   const [SaveReceipt, { error }] = useMutation(saveReceipt);
-  const uniqueId = uuid();
-  const receiptNo = uniqueId.slice(0,8);
   const { email, amount, date, from, to, receiptNumber} = formData;
   const [signatureData, setSignatureData] = useState('');
 
