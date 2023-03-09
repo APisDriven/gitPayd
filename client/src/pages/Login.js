@@ -9,7 +9,7 @@ import { loginUser } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const Login = () => {
-const [username, setUsername]= useState("");
+// const [username, setUsername]= useState("");
 const [email, setEmail]= useState("");
 const [login, { error }] = useMutation(loginUser);
 const [password, setPassword]= useState("");
@@ -31,7 +31,7 @@ const handleFormSubmit = async (event) => {
     setShowAlert(true);
   }
 
-  setUsername("");
+  // setUsername("");
   setEmail("");
   setPassword("");
 };
@@ -46,8 +46,8 @@ const handleFormSubmit = async (event) => {
             <main>
           <Form onSubmit={handleFormSubmit}>
           <p>Log In</p>
-            <Form.Label htmlFor="username">Username</Form.Label>
-            <Form.Control type="username"  name ="username" required  value={username} onChange={(event)=> setUsername(event.target.value)} />
+            {/* <Form.Label htmlFor="username">Username</Form.Label> */}
+            {/* <Form.Control type="username"  name ="username" required  value={username} onChange={(event)=> setUsername(event.target.value)} /> */}
             <Form.Label htmlFor="email">Email</Form.Label>
             <Form.Control type="email"  name ="email" required  value={email} onChange={(event)=> setEmail(event.target.value)} />
             <Form.Label htmlFor="password">Password</Form.Label>
@@ -55,7 +55,7 @@ const handleFormSubmit = async (event) => {
             <Button
           disabled={
             !(
-              username &&
+              // username &&
               email &&
               password
             )
