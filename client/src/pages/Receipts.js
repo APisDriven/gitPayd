@@ -14,7 +14,14 @@ export default function Receipts(){
             </header>
             <blockquote>
               {receipts.map((receipt)=>(
-                <p>{receipt.email}</p>
+                <p> 
+                  Receipt#: {receipt.receiptNumber}
+                  Amount: {receipt.amount}
+                  Date: {receipt.date}
+                  From: {receipt.from}
+                  To: {receipt.to}
+                  Email: {receipt.email}
+                </p>
               ))}
             </blockquote>
         </section>

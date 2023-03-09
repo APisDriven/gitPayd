@@ -22,13 +22,18 @@ const receiptSchema = new Schema(
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
     },
+    
+    from: {
+      type: String,
+      required: false
+    },
+    to: {
+        type: String,
+        required: false
+      },
     email: {
         type: String,
         required: true
-    },
-    business: {
-      type: String,
-      required: false
     },
   },
   {

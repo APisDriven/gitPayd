@@ -6,15 +6,16 @@ import {saveReceipt} from "../utils/mutations.js";
 
 const Receipt = () => {
   const [formData, setFormData] = useState({
-    email: '',
+    receiptNo:'',
     amount: '',
     date:'',
-    business:'',
-    receiptNo:''
+    from:'',
+    to:'',
+    email:''
   });
   const [SaveReceipt, { error }] = useMutation(saveReceipt);
 
-  const { email, amount, date, business, receiptNumber} = formData;
+  const { email, amount, date, from, to, receiptNumber} = formData;
   const [signatureData, setSignatureData] = useState('');
 
   const handleChange = (e) =>
@@ -27,7 +28,7 @@ const Receipt = () => {
       const { data, error } = await SaveReceipt({
         variables:{
          input: {
-          email: email, amount: Number(amount), date: date, business: business, receiptNumber: receiptNumber
+          email: email, amount: Number(amount), date: date, to: to, from: from, receiptNumber: receiptNumber
          }
         } 
      })
@@ -44,16 +45,16 @@ const Receipt = () => {
 //This is what will populate the receipt
   return (
     <form onSubmit={handleSubmit}>
-        <div>
-            <label>Email:</label>
-      <input
-        type="email"
-        name="email"
-        value={email}
+
+<div>
+     <label>Receipt No:</label>
+     <input
+        type="input"
+        name="receiptNumber"
+        value={receiptNumber}
         onChange={handleChange}
       />
-      </div>
-      
+     </div>  
      <div>
          <label>Amount:</label>
      <input
@@ -76,24 +77,36 @@ const Receipt = () => {
     </div>
      
      <div>
-     <label>Business:</label>
+     <label>From:</label>
      <input
         type="input"
-        name="business"
-        value={business}
+        name="from"
+        value={from}
         onChange={handleChange}
       />
      </div>
-      
+
      <div>
-     <label>Receipt No:</label>
+     <label>To:</label>
      <input
         type="input"
-        name="receiptNumber"
-        value={receiptNumber}
+        name="to"
+        value={to}
         onChange={handleChange}
       />
      </div>
+
+     <div>
+            <label>Email:</label>
+      <input
+        type="email"
+        name="email"
+        value={email}
+        onChange={handleChange}
+      />
+      </div>
+      
+    
      <div>
      <label>Signature:</label>
      <SignaturePad
@@ -102,7 +115,7 @@ const Receipt = () => {
        ref={(ref) => { signaturePad = ref; }}
         onEnd={() => setSignatureData(signaturePad.toDataURL())}/>
     </div>
-      <button type="submit">Send</button>
+      <button type="submit">Save and Send</button>
     </form>
   );
 };
