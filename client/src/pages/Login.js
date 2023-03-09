@@ -62,11 +62,12 @@ const handleFormSubmit = async (event) => {
           }
           type="submit"
           variant="success"
+          style={{color: '#049A8F', backgroundColor: '#023436'}}
         >
           Submit
         </Button>
           </Form>
-          <p>Need to create an account? <Link to="/signup">SignUp</Link>
+          <p>Need to create an account? <Link to="/signup" style={{color: '#049A8F'}}>Sign Up</Link>
 </p>
             </main>
       </section>

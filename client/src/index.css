@@ -5,11 +5,9 @@
 #homeBtns{
   display: flex;
   /* justify-content: space-between; */
-  
   gap:15px;
-  
+  color: #049A8F;
 }
-
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

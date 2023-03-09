@@ -12,8 +12,8 @@ const Home = () => {
             <main>
               <p>What would you like to do?</p>
               <div id="homeBtns">
-              <Link to="/newReceipt" >Create Receipt</Link>
-                <Link to="/receipts" >View Receipt</Link>
+              <Link to="/newReceipt" style={{color: '#049A8F'}}>Create Receipt</Link>
+                <Link to="/receipts" style={{color: '#049A8F'}}>View Receipt</Link>
               
               </div> 
             </main>

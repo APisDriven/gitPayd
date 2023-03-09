@@ -128,7 +128,7 @@ const Receipt = () => {
        ref={(ref) => { signaturePad = ref; }}
         onEnd={() => setSignatureData(signaturePad.toDataURL())}/>
     </div>
-      <button type="submit">Save and Send</button>
+      <button type="submit" style={{color: '#049A8F', backgroundColor: '#023436'}}>Save and Send</button>
     </form>
 
   );
