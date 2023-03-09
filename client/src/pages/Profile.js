@@ -21,9 +21,7 @@ export default function Profile(){
             <p class="center"><b>Username: {user.username}</b></p>
             <p>
                 <br></br>
-                User ID: {user.userId}<br></br>
                 Email: {user.email}<br></br>
-                Signature: {user.userId}<br></br>
             </p>
             </p>
             </div>
