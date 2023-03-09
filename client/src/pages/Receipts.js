@@ -10,7 +10,7 @@ export default function Receipts(){
 
     const [modal, setModal] = useState(false);
 
-    const toggleModal = (receipt) => {
+    const toggleModal = () => {
       setModal(!modal);
     };
 
@@ -47,16 +47,16 @@ export default function Receipts(){
         <div className="modal">
           <div className="overlay" 
           onClick={toggleModal}></div>
-          {this.receipt((receipt, index)=>(
-          <div key={index} className="modal-content">
+          {/* {receipts.map((Receipts))} */}
+          <div className="modal-content">
             <h2>Receipt Details</h2>
             <div>
-                <p><b>Receipt#:</b> {receipt.receiptNumber}</p>
-                <p><b>Amount:</b> ${receipt.amount}</p>
-                <p><b>Date:</b> {receipt.date}</p>
-                <p><b>From:</b> {receipt.from}</p>
-                <p><b>To:</b> {receipt.to}</p>
-                <p><b>Email:</b> {receipt.email}</p>
+                <p><b>Receipt#:</b></p>
+                <p><b>Amount:</b></p>
+                <p><b>Date:</b></p>
+                <p><b>From:</b></p>
+                <p><b>To:</b></p>
+                <p><b>Email:</b> </p>
             </div>
             <button
             className="close-modal"
@@ -64,7 +64,7 @@ export default function Receipts(){
               Close
             </button>
         </div>
-        ))}
+        {/* // ))} */}
         </div>
         )}
     </>
