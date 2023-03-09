@@ -62,6 +62,7 @@ const handleFormSubmit = async (event) => {
           }
           type="submit"
           variant="success"
+          style={{color: '#049A8F', backgroundColor: '#023436'}}
         >
           Submit
         </Button>
