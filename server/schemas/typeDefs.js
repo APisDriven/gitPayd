@@ -13,7 +13,8 @@ type Receipt {
     receiptNumber: String!
     amount: Int!
     date: String!
-    business: String,
+    from: String,
+    to: String,
     email: String!
 }
 
