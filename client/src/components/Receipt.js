@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 import SignaturePad from 'react-signature-canvas';
 import { useQuery, useMutation, gql } from '@apollo/client';
 import {saveReceipt} from "../utils/mutations.js";
+import { v4 as uuid } from 'uuid';
+
+const uniqueId = uuid();
+const receiptNo = uniqueId.slice(0,8);
 
 const Receipt = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +18,6 @@ const Receipt = () => {
     email:''
   });
   const [SaveReceipt, { error }] = useMutation(saveReceipt);
-
   const { email, amount, date, from, to, receiptNumber} = formData;
   const [signatureData, setSignatureData] = useState('');
   
@@ -47,15 +50,10 @@ const Receipt = () => {
   return (
     <form onSubmit={handleSubmit}>
 
-<div>
-     <label>Receipt No:</label>
-     <input
-        type="input"
-        name="receiptNumber"
-        value={receiptNumber}
-        onChange={handleChange}
-      />
-     </div>  
+    <div>
+    <label>Receipt No:</label>
+    <p>{receiptNo}</p>
+    </div> 
      <div>
          <label>Amount:</label>
      <input
